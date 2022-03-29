@@ -20,12 +20,12 @@ public class GrpcClient {
         String userName = "raju44";
         String password = "1234";
 
-        //for registration
+        //registration-- a new user is registering
         User.Registration registration = User.Registration.newBuilder().setEmail(email).setFullName(fullName).setUsername(userName).setPassword(password).build();
         User.APIResponse regResponse = userStub.register(registration);
         System.out.println(regResponse.getResponseMessage());
 
-        //login with right user name and password
+        //login-- with right user name and password
         User.LoginRequest loginRequest = User.LoginRequest.newBuilder().setUsername(userName).setPassword(password).build();
         User.APIResponse response = userStub.login(loginRequest);
         System.out.println(response.getResponseMessage());
@@ -39,8 +39,6 @@ public class GrpcClient {
         User.LoginRequest loginRequest3 = User.LoginRequest.newBuilder().setUsername(userName).setPassword("1111").build();
         User.APIResponse response3 = userStub.login(loginRequest3);
         System.out.println(response3.getResponseMessage());
-
-
 
 
         //log out
